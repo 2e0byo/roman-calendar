@@ -85,7 +85,17 @@ def roman_date(today: date) -> str:
             continue
 
         delta = candidate - today
-        print(delta, key)
+        print("Leap", today.year % 4)
+
+        if today.year % 4 == 0 and today.month == 2:
+            print(today.day)
+            if today.day > 25:
+                delta += timedelta(days=1)
+            if today.day == 25:
+                return "A.D. BIS VI KAL. M."
+            elif today.day > 13:
+                print("here")
+                delta -= timedelta(days=1)
 
         if not delta:
             if key != "kalend":
@@ -97,9 +107,6 @@ def roman_date(today: date) -> str:
             if delta.days == 2:
                 return f"PRID. {latin_words[key]} {latin_months[candidate.month]}."
             else:
-                # if key == "ide":
-                #     days = delta.days + 1
-                # else:
                 days = delta.days
                 return f"A.D. {latin_numerals[days]} {latin_words[key]} {latin_months[candidate.month]}."
 
@@ -136,7 +143,8 @@ def test_rom_cal():
     # 2024 is
     non_leap.update(leap)
     for modern, old in non_leap.items():
-        d = datetime.strptime(f"{modern} 2021", "%d %b %Y").date()
+        print(modern, old)
+        d = datetime.strptime(f"{modern} 2020", "%d %b %Y").date()
         assert roman_date(d) == old
 
 
