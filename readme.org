@@ -1,0 +1,8 @@
+#+title: Roman calendar in python
+
+Script to calculate today’s date according to the roman way of naming
+the days.  (Note that this is not the same thing as the Julian
+calendar, and that ‘roman dating’ is a rather fraught business.)
+
+Implemented as a challenge and for the fun of it.
+
