@@ -6,3 +6,23 @@ calendar, and that ‘roman dating’ is a rather fraught business.)
 
 Implemented as a challenge and for the fun of it.
 
+* Usage
+#+begin_src python
+  from roman_date import roman_date
+  from datetime import date
+  print(roman_date(date.today()))
+#+end_src
+
+* Tests
+#+begin_src bash
+  pytest roman_date.py
+#+end_src
+
+* Practical Usage
+Modify ~roman_date~ to spew out whatever format you want, save it to a
+dict or csv or json or something, and use that.
+
+The test dataset is ‘off the net’.  It has been corrected.  Whilst the
+original format might have been copyrighted, it is impossible to
+copyright the names of the days themselves, or their standard
+abbreviated form, which is all we use here.
